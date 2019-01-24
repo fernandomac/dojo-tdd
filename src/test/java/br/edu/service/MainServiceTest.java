@@ -2,29 +2,19 @@ package br.edu.service;
 
 import static org.junit.Assert.assertEquals;
 
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-import br.edu.client.RemoteClient;
 import br.edu.domain.ResultadoValidacao;
 
 public class MainServiceTest {
 	
-	@Mock
-	private RemoteClient remoteClientMock;
 
 	private MainService service;
 	
 	@Before
 	public void setUp() {
-		MockitoAnnotations.initMocks(this);
-		service = new MainService(remoteClientMock);
+		service = new MainService();
 	}
 	
 	@Test
@@ -71,30 +61,4 @@ public class MainServiceTest {
 		assertEquals(ResultadoValidacao.EXTRA, actual);
 	}
 	
-	@Test
-	public void shouldBonusFatorZero() {
-		
-		Integer fator = 0;
-		Double valor = 12000.0;
-		
-		ResultadoValidacao actual = service.calculo(fator, valor);
-		
-		assertEquals(ResultadoValidacao.BONUS, actual);
-	}
-	
-	@Test
-	public void shouldBonusFatorZeroErrorIndice() {
-		
-		Integer fator = 0;
-		Double valor = 12000.0;
-		
-		when(remoteClientMock.getRemoteIndice()).thenReturn(-1);
-		
-		ResultadoValidacao actual = service.calculo(fator, valor);
-		
-		assertEquals(ResultadoValidacao.BONUS, actual);
-		
-		verify(remoteClientMock).getRemoteIndice();
-		verifyNoMoreInteractions(remoteClientMock);
-	}
 }

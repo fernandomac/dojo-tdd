@@ -1,8 +1,5 @@
 package br.edu.app;
 
-import org.springframework.web.client.RestTemplate;
-
-import br.edu.client.RemoteClient;
 import br.edu.domain.ResultadoValidacao;
 import br.edu.service.MainService;
 
@@ -15,9 +12,7 @@ public class App {
 
 		System.out.println("Inicializando Aplicação");
 
-		RestTemplate restTemplate = new RestTemplate();
-		RemoteClient remoteClient = new RemoteClient(restTemplate );
-		MainService service = new MainService(remoteClient);
+		MainService service = new MainService();
 		
 		System.out.println("Processando Validação");
 		

@@ -6,8 +6,14 @@ public class MainService {
 
 	public ResultadoValidacao calculo (Integer fator, Double valor) {
 		ResultadoValidacao result = null;
+		double resultadoCalculo;
 		
-		double resultadoCalculo = (fator * valor) / 2;
+		if (fator == 0) {
+			resultadoCalculo = formulaSemFator(valor);
+		} else {
+			resultadoCalculo = formulaFator(fator, valor);
+		}
+				
 		
 		if (resultadoCalculo < 0) {
 			result = ResultadoValidacao.INVALIDO;
@@ -22,6 +28,14 @@ public class MainService {
 		return result;
 		
 		
+	}
+
+	private double formulaSemFator(Double valor) {
+		return valor / 3;
+	}
+
+	private double formulaFator(Integer fator, Double valor) {
+		return (fator * valor) / 2;
 	}
 	
 }

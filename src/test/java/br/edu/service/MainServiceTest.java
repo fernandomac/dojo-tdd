@@ -53,4 +53,15 @@ public class MainServiceTest {
 		
 		assertEquals(ResultadoValidacao.EXTRA, actual);
 	}
+	
+	@Test
+	public void shouldBonusFatorZero() {
+		
+		Integer fator = 0;
+		Double valor = 12000.0;
+		
+		ResultadoValidacao actual = service.calculo(fator, valor);
+		
+		assertEquals(ResultadoValidacao.BONUS, actual);
+	}
 }

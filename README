@@ -11,7 +11,11 @@ O PO irá solicitar implementações de negócio de forma incremental ao longo d
 		1 - O sistema atual informará o VALOR solicitado pelo cliente e um FATOR de credibilidade do mesmo cliente.
 		2 - O novo sistema deverá calcular e retornar uma das 4 opções: VALIDO, INVALIDO, EXTRA, BONUS.
 		3 - De acordo com a formula: (fator * valor) / 2
-		4 - Seguindo a regra de acordo com o resultado da formula: [negativos = INVALIDO], [Até 1000 = VALIDO], [Entre 1001 e 5000 = EXTRA], [Maior 5001 = BONUS]   
+		4 - Seguindo a regra de acordo com o resultado da formula: 
+		[negativos = INVALIDO], 
+		[Até 1000 = VALIDO], 
+		[Entre 1001 e 5000 = EXTRA], 
+		[Maior 5000 = BONUS]   
 
 - Story Sprint 2
 
